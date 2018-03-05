@@ -4,28 +4,33 @@ public class lcmofnums {
 	static ArrayList<Integer> list = new ArrayList<Integer>();
 
 	public static void main(String[] args) {
-		lcmofnums trump = new lcmofnums();
-		System.out.print(trump.gcd(12,3));
-	}
+		lcmofnums trmp = new lcmofnums();
 
-	public int lcmofarray(ArrayList<Integer> list, int start, int end) {
-		if ((end - start) == 1)
-			return lcm(list.get(start), list.get(end - 1));
-		else
-			return (lcm(list.get(start), lcmofarray(list, start + 1, end)));
+		double j = 0;
+		int end = 100000;
+		for (int n = 1; n < 100; n++) {
+			for (int i = 1; i < end; i++) {
+				j += trmp.gcd(n, i);
+			}
+			System.out.println(n + "|" + j / end);
+		j = 0;
+		}
 	}
 
 	public int gcd(int a, int b) {
-		if (a < b)
-			return gcd(b, a);
-		if (a % b == 0)
-			return b;
+
+		int min = (a < b) ? a : b;
+		int max = (a > b) ? a : b;
+		if (max % min == 0)
+			// return min;
+			return 1;
+
 		else
-			return gcd(a, a % b);
+			return gcd(min, max % min) + 1;
+
 	}
 
 	public int lcm(int a, int b) {
-		return ((a * b) / gcd(a, b));
-
+		return (a * b) / gcd(a, b);
 	}
 }
