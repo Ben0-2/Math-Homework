@@ -6,15 +6,17 @@ public class lcmofnums {
 	public static void main(String[] args) {
 		lcmofnums trmp = new lcmofnums();
 
-		double j = 0;
+	
 		int end = 100000;
-		for (int n = 1; n < 100; n++) {
+		for (int n = 1; n < 1000; n++) {
+			double j = 0;
 			for (int i = 1; i < end; i++) {
 				j += trmp.gcd(n, i);
 			}
-			System.out.println(n + "|" + j / end);
-		j = 0;
+			System.out.println(j / end);
+		
 		}
+		
 	}
 
 	public int gcd(int a, int b) {
