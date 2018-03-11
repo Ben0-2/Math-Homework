@@ -1,20 +1,14 @@
 import java.util.ArrayList;
 
-public class DivisorCounter extends PF{
-public DivisorCounter(int k) {
-		super(k);
-	
-		// TODO Auto-generated constructor stub
-	}
-public static void main(String[] args) {
-	int j = 2;
-	int k = 5;
-	DivisorCounter d = new DivisorCounter(k);
-	for(int i: d.createPowerList(k)) {
-		
-		j+=i;
+public class DivisorCounter {
+
+	public static void main(String[] args) {
+		PF pf = new PF((int) Math.pow(2, 15));
+		int k = 1;
+		for (int i : pf.getPowers()) {
+			k = k * (i + 1);
 		}
-System.out.println(j);
-}
+		System.out.println(k + " is your divisor count!");
+	}
 
 }
