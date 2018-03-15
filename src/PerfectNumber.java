@@ -1,28 +1,28 @@
 
 public class PerfectNumber {
     public static void main(String[] args) {
-        final int LIMIT = 1000000;
-        boolean isPerfect = false;
+        final int lastnum = 1000000000;
         int i;
-        for(i = 2; i < LIMIT; i++) { 
-            isPerfect = isNumPerfect(i);
-            if(isPerfect) {
-                System.out.println(i + " is a perfect number");
+        for(i = 2; i < lastnum; i++) { 
+            if(i>=1000000 && i%1000000 == 0) {
+            	System.out.println("You are at " + i + "!");
+            }
+            else if(perfectOrNot(i)) {
+                System.out.println(i + " is perfect!");
             }
         }
     }
-    public static boolean isNumPerfect(int i) {
-        boolean isPerfect = false;
+    public static boolean perfectOrNot(int i) {
+        boolean isitperfect = false;
         int sum = 1;
-        int x;
-        for(x = 2; x <= (i+i%2) / 2; x++) {
-            if(i % x == 0) {
-                sum += x;
+        for(int j = 2; j <= (i+i%2) / 2; j++) {
+            if(i % j == 0) {
+                sum += j;
             }
         }
         if(sum == i) {
-            isPerfect = true;
+            isitperfect = true;
         }
-        return isPerfect;
+        return isitperfect;
     }
 }
