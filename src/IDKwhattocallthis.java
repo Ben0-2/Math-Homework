@@ -8,19 +8,20 @@ public class IDKwhattocallthis {
 			for (int k = 0; k <= Math.sqrt(i); k++) {
 				for (int p = 0; p <= Math.sqrt(i); p++) {
 					if (j == k * k + p * p) {
-						System.out.println(j);
+						
 						list.set(j, true);
 					}
 				}
 			}
 		}
 
-		System.out.println(list);
+		findTrueIndices(list);
+		System.out.println();
 
 	}
 
 	public static void main(String[] args) {
-		int j = 40;
+		int j = 1000;
 		IDKwhattocallthis i = new IDKwhattocallthis(j);
 		i.MakeSingerAlgorithmList(j);
 
@@ -35,32 +36,31 @@ public class IDKwhattocallthis {
 		list.set(0, true);
 		list.set(1, true);
 		list.set(2, true);
-	
 
-		 for(int b = 0; b<=i; b++) {
-		 if (p.getPrimeornot().get(b) && b % 4 == 1) {
-		 list.set(b, true);
-		 System.out.println(b);
-		 }
-		
-		
-		 for (int a = 0; a <= Math.sqrt(b); a++) {
-		 if (a * a == b)
-		 list.set(b, true);
-		 System.out.println(b);
-		 }
+		for (int b = 0; b <= i; b++) {
+			if (p.getPrimeornot().get(b) && b % 4 == 1) {
+				list.set(b, true);
+			}
+
+			for (int a = 0; a <= Math.sqrt(b); a++) {
+				if (a * a == b)
+					list.set(b, true);
+			}
 		}
-			findTrueIndices(list); 
-		//
-		// System.out.println(list);
-		//// for (int n = 0; n <= 3; n++) {
-		//// for (int j = 2; j < list.size(); j++) {
-		//// int k = j * (list.get(list.indexOf(j) + 1));
-		//// if (k <= i) {
-		//// list.add(k);
-		//// }
-		//// }
-		//// }
+
+		for (int n = 0; n < i; n++) {
+			for (int j = 2; j < list.size(); j++) {
+				if (list.get(j)) {
+
+					for (int k = 2; k < list.size(); k++) {
+						if (list.get(k)&& j*k <=i) {
+							list.set(j * k, true);
+						}
+					}
+				}
+			}
+		}
+		findTrueIndices(list);
 
 	}
 
@@ -73,5 +73,5 @@ public class IDKwhattocallthis {
 		}
 
 	}
-	
+
 }
